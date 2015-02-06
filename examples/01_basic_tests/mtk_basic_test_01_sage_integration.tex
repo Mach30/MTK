@@ -1,0 +1,79 @@
+%!TEX TS-program = sage
+\documentclass{article}
+\title{MTK Basic Test 01 - Sage Integration}
+\author{J. Simmons}
+
+\usepackage{sagetex}
+\setlength{\sagetexindent}{10ex}
+
+\begin{document}
+\maketitle
+
+% start content here
+\section{Test sageblock}
+This section tests the ability to run Python inline using the sageblock command.  The sageblock command shows the Python code in the resulting document and makes the results of the Python analysis available for later reference as shown below.
+
+\begin{sageblock}
+  x1 = 1
+  x2 = 1
+  y = x1 + x2
+\end{sageblock}
+
+The above code demonstrates that $\sage{x1} + \sage{x2}  = \sage{y} $.
+
+
+\section{Test sagesilent}
+This section tests the ability to run Python inline using the sagesilent command.  The sagesilent command runs the Python code without displaying the source in the resulting document and makes the results of the Python analysis available for later reference as shown below.
+
+\begin{sagesilent}
+  x3 = 2
+  x4 = 2
+  y2 = x3 + x4
+\end{sagesilent}
+
+The hidden code demonstrates that $\sage{x3} + \sage{x4}  = \sage{y2} $.
+
+\section{Test PyLab Integration and Plotting}
+This section tests the ability to ue PyLab's plotting methods to create a basic plot and then include it in the document.
+
+\begin{sageblock}
+  import numpy
+  import pylab
+  
+  range_begin = -5
+  range_end = 5 
+  x_vals = []
+  y_vals = []
+  
+  # define the function to evaluate
+  y = x^2 +2*x + 3
+  
+  # add 1 to range end to include the last desired value
+  for i in range (range_begin, range_end+1):
+    x_vals.append(i)
+    y_vals.append(y(x=i))
+    
+  x_arr = numpy.array(x_vals)
+  y_arr = numpy.array(y_vals)
+  
+  pylab.clf()    
+  pylab.plot(x_arr, y_arr, 'bo')
+  pylab.xlabel('x')
+  pylab.ylabel('y')
+  pylab.title('Demonstration Quadratic Plot')
+  pylab.savefig('quadratic.png')
+\end{sageblock}
+
+The code above calculates values for the quadratic equations $\sage{y}$ for the integer values from $\sage{range_begin}$ to $\sage{range_end}$ and plots these values in a newly generated file quadratic.png.  The LaTeX code then conditionally includes the plot as Figure~\ref{f:quad_plot}.
+
+\IfFileExists{quadratic.png}{
+    \begin{figure}[h!]
+    \centering
+    \includegraphics[scale=.60]{quadratic.png}
+    \caption{Including a Sage generated plot}
+    \label{f:quad_plot}
+    \end{figure}
+    } 
+
+
+\end{document}
