@@ -18,3 +18,6 @@ apt-get install -y sagemath-upstream-binary
 #Configure sagetex to work properly with sage
 cp -R /usr/lib/sagemath/local/share/texmf/tex/ `kpsewhich -var-value=TEXMFLOCAL`
 texhash `kpsewhich -var-value=TEXMFLOCAL`
+
+#Will get an error about makecmds.sty missing without this
+apt-get install -y texlive-latex-extra
