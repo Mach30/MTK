@@ -1,0 +1,31 @@
+%!TEX TS-program = sage
+\documentclass{article}
+\title{MTK Basic Test 03 - Units with Pint}
+\author{J. Simmons}
+
+\usepackage{sagetex}
+\setlength{\sagetexindent}{5ex}
+
+\begin{document}
+\maketitle
+
+% start content here
+\section{Test Units with Pint}
+This section tests using the Pint library to implement units in MTK.  The following analysis computes the area of a rectangle.
+
+\begin{sageblock}
+from pint import UnitRegistry
+ureg = UnitRegistry()
+
+length = 2.5 * ureg.meter
+width = 2.0 * ureg.meter
+
+area = length * width
+\end{sageblock}
+
+The area of a rectangle of length \sagestr{'${:L}$'.format(length)} and width \sagestr{'${:L}$'.format(width)} is \sagestr{'${:L}$'.format(area)}.
+
+\section*{}
+This document is a work of Mach 30 and is licensed under the Creative Commons Attribution 3.0 Unported License. To view a copy of this license, visit http://creativecommons.org/licenses/by/3.0/.
+
+\end{document}
