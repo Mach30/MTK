@@ -21,3 +21,14 @@ texhash `kpsewhich -var-value=TEXMFLOCAL`
 
 #Will get an error about makecmds.sty missing without this
 apt-get install -y texlive-latex-extra
+
+#Pygments for Python syntax highlighting
+sudo apt-get install python-pygments
+
+# Do Kile shell escape automatically
+# Insert -shell-escape at the head of options line under [Tool/PDFLaTeX/Default]
+# ~/.kde/share/config/kilerc
+# Search home dir for kilerc and then use awk/sed to edit file in-place
+
+# Add Pint for units handling
+sage --python -m easy_install pint
