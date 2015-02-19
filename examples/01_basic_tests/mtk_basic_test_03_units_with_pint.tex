@@ -23,6 +23,9 @@ width = 2.0 * units.meter
 
 area = length * width
 
+force = 20 * units.newton
+pressure = force / area
+
 def displayFloat(x, formatString):
   return displayFloatMagnitude(x, formatString) + ' ' + displayUnits(x)
   
@@ -36,7 +39,7 @@ def displayUnits(x):
   
 \end{sageblock}
 
-The area of a rectangle of length \sagestr{displayFloat(length, '{0:.2f}')} and width \sagestr{displayFloat(width, '{0:.2f}')} is \sagestr{displayFloat(area, '{0:.2f}')}.
+The area of a rectangle of length \sagestr{displayFloat(length, '{0:.2f}')} and width \sagestr{displayFloat(width, '{0:.2f}')} is \sagestr{displayFloat(area, '{0:.2f}')}.  For a force of \sagestr{displayFloat(force, '{0:.2f}')} the pressure on the rectangle is \sagestr{displayFloat(pressure.to(units.pascal), '{0:.2f}')}.
 
 \section*{}
 This document is a work of Mach 30 and is licensed under the Creative Commons Attribution 3.0 Unported License. To view a copy of this license, visit http://creativecommons.org/licenses/by/3.0/.
