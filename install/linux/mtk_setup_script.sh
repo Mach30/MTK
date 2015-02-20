@@ -34,7 +34,7 @@ sudo apt-get install python-pygments  > /dev/null
 echo "Automating MTK Sage steps in Kile IDE..."
 # Do Kile shell escape automatically
 KILERC_LOCATION="$(find /home/$(who am i | awk '{print $1}') -name kilerc)"
-sed '/^options=-interaction=nonstopmode/ s/^\(options=\)/\1-shell-escape /' $KILERC_LOCATION
+sed -i '/^options=-interaction=nonstopmode/ s/^\(options=\)/\1-shell-escape /' $KILERC_LOCATION
 
 echo "Adding Pint for units handling..."
 # Add Pint for units handling
