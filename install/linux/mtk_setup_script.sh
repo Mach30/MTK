@@ -5,6 +5,9 @@
 # Writen and tested on Ubuntu 14.04
 # Must be run with superuser priveleges
 
+echo "Installing the Mach 30 Mathematics Tool Kit (MTK)."
+echo "This can take awhile. Please be patient."
+
 echo "Running an initial update..."
 apt-get update > /dev/null
 
@@ -38,10 +41,12 @@ wget -P /tmp --user-agent=Mozilla --content-disposition -E -c http://opendesigne
 
 # Find the existing kilerc file for the user and rename it
 KILERC_LOCATION="$(find /home/$(who am i | awk '{print $1}') -name kilerc)"
-mv KILERC_LOCATION $(KILERC_LOCATION).orig
-mv /tmp/kilerc KILERC_LOCATION
-chown $(who am i | awk '{print $1}').$(who am i | awk '{print $1}') KILERC_LOCATION
+mv $KILERC_LOCATION $(KILERC_LOCATION).orig
+mv /tmp/kilerc $KILERC_LOCATION
+chown $(who am i | awk '{print $1}').$(who am i | awk '{print $1}') $KILERC_LOCATION
 
 echo "Adding Pint for units handling..."
 # Add Pint for units handling
 sage --python -m easy_install pint  > /dev/null
+
+echo "Finished installing MTK. Enjoy."
