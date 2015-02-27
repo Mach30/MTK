@@ -41,7 +41,7 @@ wget -P /tmp --user-agent=Mozilla --content-disposition -E -c http://opendesigne
 
 # Find the existing kilerc file for the user and rename it
 KILERC_LOCATION="$(find /home/$(who am i | awk '{print $1}') -name kilerc)"
-mv $KILERC_LOCATION $(KILERC_LOCATION).orig
+mv $KILERC_LOCATION "$(KILERC_LOCATION).orig"
 mv /tmp/kilerc $KILERC_LOCATION
 chown $(who am i | awk '{print $1}').$(who am i | awk '{print $1}') $KILERC_LOCATION
 
