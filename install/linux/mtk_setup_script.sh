@@ -9,11 +9,9 @@ echo "Running an initial update..."
 apt-get update > /dev/null
 
 echo "Installing the Kile LaTex IDE..."
-#Kile IDE
 apt-get install -y kile  > /dev/null
 
 echo "Installing Sage..."
-#Sage
 apt-add-repository -y ppa:aims/sagemath  > /dev/null
 apt-get update  > /dev/null
 apt-get install -y sagemath-upstream-binary  > /dev/null
@@ -33,8 +31,16 @@ sudo apt-get install python-pygments  > /dev/null
 
 echo "Automating MTK Sage steps in Kile IDE..."
 # Do Kile shell escape automatically
+#sed -i '/^options=-interaction=nonstopmode/ s/^\(options=\)/\1-shell-escape /' $KILERC_LOCATION
+
+# Download the complete MTK kilerc file
+wget -P /tmp --user-agent=Mozilla --content-disposition -E -c http://opendesignengine.net/dmsf_files/479?download=
+
+# Find the existing kilerc file for the user and rename it
 KILERC_LOCATION="$(find /home/$(who am i | awk '{print $1}') -name kilerc)"
-sed -i '/^options=-interaction=nonstopmode/ s/^\(options=\)/\1-shell-escape /' $KILERC_LOCATION
+mv KILERC_LOCATION $(KILERC_LOCATION).orig
+mv /tmp/kilerc KILERC_LOCATION
+chown $(who am i | awk '{print $1}').$(who am i | awk '{print $1}') KILERC_LOCATION
 
 echo "Adding Pint for units handling..."
 # Add Pint for units handling
