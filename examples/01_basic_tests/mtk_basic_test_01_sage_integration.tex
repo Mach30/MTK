@@ -31,40 +31,32 @@ This section tests the ability to run Python inline using the sagesilent command
   y2 = x3 + x4
 \end{sagesilent}
 
-The hidden code demonstrates that $\sage{x3} + \sage{x4}  = \sage{y2} $.
+The hidden code demonstrates that $\sage{x3} + \sage{x4}  = \sage{y2}$.
 
 \section{Test PyLab Integration and Plotting}
 This section tests the ability to use PyLab's plotting methods to create a basic plot and then include it in the document.
 
 \begin{sageblock}
-  import numpy
-  import pylab
+  from numpy import *
+  from pylab import *
+  
+  # define the function to evaluate
+  def f(x):
+    return x^2 +2*x + 3
   
   range_begin = -5
   range_end = 5 
-  x_vals = []
-  y_vals = []
+  x = linspace(range_begin, range_end, 1000)
   
-  # define the function to evaluate
-  y = x^2 +2*x + 3
-  
-  # add 1 to range end to include the last desired value
-  for i in range (range_begin, range_end+1):
-    x_vals.append(i)
-    y_vals.append(y(x=i))
-    
-  x_arr = numpy.array(x_vals)
-  y_arr = numpy.array(y_vals)
-  
-  pylab.clf()    
-  pylab.plot(x_arr, y_arr, 'bo')
-  pylab.xlabel('x')
-  pylab.ylabel('y')
-  pylab.title('Demonstration Quadratic Plot')
-  pylab.savefig('quadratic.png')
+  clf()    
+  plot(x, f(x), 'bo')
+  xlabel('x')
+  ylabel('f(x)')
+  title('Demonstration Quadratic Plot')
+  savefig('quadratic.png')
 \end{sageblock}
 
-The code above calculates values for the quadratic equations $\sage{y}$ for the integer values from $\sage{range_begin}$ to $\sage{range_end}$ and plots these values in a newly generated file quadratic.png.  The LaTeX code then conditionally includes the plot as Figure~\ref{f:quad_plot}.
+The code above calculates values for the quadratic equations $f(x) = x^2 +2x + 3$ for the integer values from $\sage{range_begin}$ to $\sage{range_end}$ and plots these values in a newly generated file quadratic.png.  The LaTeX code then conditionally includes the plot as Figure~\ref{f:quad_plot}.
 
 \IfFileExists{quadratic.png}{
     \begin{figure}[h!]
