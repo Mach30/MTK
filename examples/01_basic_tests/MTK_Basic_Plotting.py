@@ -18,10 +18,8 @@
 import numpy
 import pylab
 
-def MakeSimplePlot(title, x_vals, x_label, y_vals, y_label, filename):
+def MakeSimplePlot(title, x_arr, x_label, y_arr, y_label, filename):
     """Make a simple x,y plot and save it to a file"""
-    x_arr = numpy.array(x_vals)
-    y_arr = numpy.array(y_vals)
   
     pylab.clf()    
     pylab.plot(x_arr, y_arr, 'bo')
