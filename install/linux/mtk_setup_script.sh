@@ -33,25 +33,26 @@ wget https://bootstrap.pypa.io/get-pip.py
 python get-pip.py
 rm get-pip.py
 
-# TODO - There's a bug with installing scipy: ImportError: No module named 'numpy'; Failed building wheel for scipy
-# http://stackoverflow.com/questions/24353267/build-wheel-for-a-package-like-scipy-lacking-dependency-declaration
+# Install IPython
+pip3 install "ipython[all]"
+
 # Install scientific packages
-pip install numpy sympy matplotlib scipy pandas
+#pip install numpy sympy matplotlib scipy pandas
 
 # Install ipython notebook and dependencies
-pip install ipython pyzmq jinja2 pygments bokeh
+#pip install pyzmq jinja2 pygments bokeh jsonschema
 
 # Install latest dev scikit-learn and build it
-pip install cython https://github.com/scikit-learn/scikit-learn/archive/master.zip
+#pip install cython https://github.com/scikit-learn/scikit-learn/archive/master.zip
 
-# install prettyplotlib by Olga Botvinnik for beauty plots
-pip install brewer2mpl prettyplotlib
+# Install prettyplotlib by Olga Botvinnik for beauty plots
+#pip install brewer2mpl prettyplotlib
+
+# Install Mach 30 dependencies
+pip install pint
 
 # Deactivate virtual env
 deactivate
-
-echo "Adding Pint for units handling..."
-# TODO - Add Pint for units handling
 
 echo "Finished installing MTK. Enjoy."
 echo "If you have questions or want to get involved in the MTK project, see https://opendesignengine.net/projects/mtk"
