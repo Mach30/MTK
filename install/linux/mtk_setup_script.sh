@@ -12,6 +12,9 @@ echo "This can take awhile. Please be patient."
 echo "Running an initial update..."
 apt-get update > /dev/null
 
+# Gain superuser status
+sudo su
+
 # Install python development packages and g++
 apt-get install -y python3-dev g++
 
@@ -20,6 +23,9 @@ apt-get install -y libblas-dev liblapack-dev gfortran
 
 # Install dependencies for matplotlib
 apt-get install -y libfreetype6-dev libpng-dev
+
+# Drop super user status
+exit
 
 # IPython notebook has bug:
 # https://bugs.launchpad.net/ubuntu/+source/python3.4/+bug/1290847
