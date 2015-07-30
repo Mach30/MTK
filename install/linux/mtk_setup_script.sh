@@ -3,7 +3,7 @@
 # License: Apache 2.0
 
 # Writen and tested on Ubuntu 14.04
-# Must be run with superuser priveleges (sudo -H)
+# This script will ask for a sudo password
 # IPython setup based on http://bikulov.org/blog/2014/05/14/install-up-to-date-scientific-environment-in-ubuntu-14-dot-04-with-python-3-dot-4/
 
 echo "Installing the Mach 30 Mathematics Tool Kit (MTK)."
