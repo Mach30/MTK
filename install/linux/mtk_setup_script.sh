@@ -13,7 +13,7 @@ echo "Running an initial update..."
 apt-get update > /dev/null
 
 # Gain superuser status
-sudo su
+sudo
 
 # Install python development packages and g++
 apt-get install -y python3-dev g++
@@ -25,14 +25,14 @@ apt-get install -y libblas-dev liblapack-dev gfortran
 apt-get install -y libfreetype6-dev libpng-dev
 
 # Drop super user status
-exit
+sudo -K
 
 # IPython notebook has bug:
 # https://bugs.launchpad.net/ubuntu/+source/python3.4/+bug/1290847
 python3 -m venv --clear --without-pip venv/ipython-notebook
 
 # Activate virtual env and install pip
-source venv/ipython-notebook/bin/activate
+#source venv/ipython-notebook/bin/activate
 
 # Set up pip
 wget https://bootstrap.pypa.io/get-pip.py
@@ -43,22 +43,23 @@ rm get-pip.py
 pip3 install "ipython[all]"
 
 # Install scientific packages
-#pip install numpy sympy matplotlib scipy pandas
+pip install numpy sympy matplotlib scipy pandas
 
 # Install ipython notebook and dependencies
-#pip install pyzmq jinja2 pygments bokeh jsonschema
+pip install pyzmq jinja2 pygments bokeh jsonschema
 
+# TODO: Determine if we need this
 # Install latest dev scikit-learn and build it
 #pip install cython https://github.com/scikit-learn/scikit-learn/archive/master.zip
 
 # Install prettyplotlib by Olga Botvinnik for beauty plots
-#pip install brewer2mpl prettyplotlib
+pip install brewer2mpl prettyplotlib
 
 # Install Mach 30 dependencies
 pip install pint
 
 # Deactivate virtual env
-deactivate
+#deactivate
 
 echo "Finished installing MTK. Enjoy."
 echo "If you have questions or want to get involved in the MTK project, see https://opendesignengine.net/projects/mtk"
