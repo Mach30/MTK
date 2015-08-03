@@ -20,8 +20,8 @@ echo "Reloading bashrc to pick up Anaconda changes"
 source ~/.bashrc
 
 echo "Updating Anaconda and installing IPython."
-bash -c "conda update conda"
-bash -c "conda update ipython ipython-notebook ipython-qtconsole"
+~/anaconda3/bin/conda update conda
+~/anaconda3/bin/conda update ipython ipython-notebook ipython-qtconsole
 
 # Install Mach 30 dependencies
 pip install pint
