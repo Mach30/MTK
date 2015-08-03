@@ -11,13 +11,13 @@ echo "Switching to Downloads directory."
 cd ~/Downloads
 
 echo "Downloading Anaconda installer."
-wget https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86_64.sh
+# wget https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86_64.sh
 
 echo "Installing Anaconda. Please follow the instructions."
-bash Anaconda3-2.3.0-Linux-x86_64.sh
+# bash Anaconda3-2.3.0-Linux-x86_64.sh
 
 echo "Reloading bashrc to pick up Anaconda changes"
-source ~/.bashrc
+# source ~/.bashrc
 
 echo "Updating Anaconda and installing IPython."
 ~/anaconda3/bin/conda update conda
@@ -29,7 +29,7 @@ pip install pint
 cd ~/.ipython/nbextensions
 wget https://github.com/ipython-contrib/IPython-notebook-extensions/archive/3.x.zip
 unzip 3.x.zip
-rm unzip 3.x.zip
+rm 3.x.zip
 
 # echo "Installing pandoc for PDF export."
 sudo apt-get install pandoc texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended 
