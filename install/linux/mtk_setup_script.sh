@@ -23,15 +23,19 @@ echo "Updating Anaconda and installing IPython."
 ~/anaconda3/bin/conda update conda
 ~/anaconda3/bin/conda update ipython ipython-notebook ipython-qtconsole
 
-# Install Mach 30 dependencies
+echo "Installing Mach 30 dependencies"
 ~/anaconda3/bin/pip install pint
 
+echo "Initializing IPython configuration directories."
+~/anaconda3/bin/ipython profile create
+
+echo "Downloading and installing IPython notebook extensions"
 cd ~/.ipython/nbextensions
 wget https://github.com/ipython-contrib/IPython-notebook-extensions/archive/3.x.zip
 unzip 3.x.zip
 rm 3.x.zip
 
-# echo "Installing pandoc for PDF export."
+echo "Installing pandoc and some dependencies for PDF export."
 sudo apt-get install pandoc texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended 
 
 echo "Finished installing MTK. Enjoy."
