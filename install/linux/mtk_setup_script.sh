@@ -30,8 +30,8 @@ echo "Installing Mach 30 dependencies"
 sudo -H /opt/anaconda3/bin/pip install --upgrade pint
 
 echo "Initializing IPython configuration directories."
-export IPYTHONDIR="/opt/ipython"
-sudo /opt/anaconda3/bin/ipython profile create
+#sudo /opt/anaconda3/bin/ipython profile create
+sudo /opt/anaconda3/bin/ipython profile create --ipython-dir=/opt/ipython/profile_default 
 
 echo "Downloading and installing IPython notebook extensions"
 cd /opt/ipython/nbextensions
