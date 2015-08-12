@@ -31,10 +31,10 @@ sudo -H /opt/anaconda3/bin/pip install --upgrade pint
 
 echo "Initializing IPython configuration directories."
 #sudo /opt/anaconda3/bin/ipython profile create
-sudo /opt/anaconda3/bin/ipython profile create --ipython-dir=/opt/ipython/profile_default 
+sudo /opt/anaconda3/bin/ipython profile create --ipython-dir=/usr/local/share/ipython
 
 echo "Downloading and installing IPython notebook extensions"
-cd /opt/ipython/nbextensions
+cd /usr/local/share/ipython/nbextensions
 sudo wget https://github.com/ipython-contrib/IPython-notebook-extensions/archive/3.x.zip
 sudo unzip 3.x.zip
 sudo rm 3.x.zip
