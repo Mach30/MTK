@@ -24,7 +24,7 @@ sudo /opt/anaconda3/bin/conda update conda
 sudo /opt/anaconda3/bin/conda update ipython ipython-notebook ipython-qtconsole
 
 # Make sure user can launch IPython without specifying the full path
-sudo ln -s /opt/anaconda3/bin/ipython /usr/local/bin/iptyhon
+sudo ln -s /opt/anaconda3/bin/ipython /usr/local/bin/ipython
 
 echo "Installing Mach 30 dependencies"
 sudo -H /opt/anaconda3/bin/pip install --upgrade pint
