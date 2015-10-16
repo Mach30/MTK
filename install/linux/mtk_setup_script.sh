@@ -31,13 +31,15 @@ sudo -H /opt/anaconda3/bin/pip install --upgrade pint
 
 echo "Initializing IPython configuration directories."
 #sudo /opt/anaconda3/bin/ipython profile create
-sudo /opt/anaconda3/bin/ipython profile create --ipython-dir=/usr/local/share/ipython
+sudo /opt/anaconda3/bin/ipython profile create --ipython-dir=/usr/local/share/jupyter/
 
 echo "Downloading and installing IPython notebook extensions"
-cd /usr/local/share/ipython/nbextensions
-sudo wget https://github.com/ipython-contrib/IPython-notebook-extensions/archive/3.x.zip
-sudo unzip 3.x.zip
-sudo rm 3.x.zip
+cd /usr/local/share/jupyter/nbextensions
+sudo wget https://github.com/ipython-contrib/IPython-notebook-extensions/archive/master.zip
+sudo unzip master.zip
+sudo mv IPython-notebook-extensions-master/nbextensions/* ./
+sudo rm -rf IPython-notebook-extensions-master/
+sudo rm master.zip
 
 echo "Installing pandoc and some dependencies for PDF export."
 sudo apt-get install pandoc texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended 
